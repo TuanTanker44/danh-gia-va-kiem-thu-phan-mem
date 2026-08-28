@@ -1,21 +1,21 @@
 package com.example.analyzer;
 
 /**
- * Analyzes an integer range [1, n] and reports parity statistics.
+ * Analyzes a list of integers and reports parity statistics.
  */
 public class NumberAnalyzer {
 
     /**
-     * Walks through 1..n (loop), tags each number as even/odd (branch),
+     * Walks through the given numbers (loop), tags each as even/odd (branch),
      * then compares the counts to summarize which parity dominates (branch).
      */
-    public String analyze(int n) {
+    public String analyze(int[] numbers) {
         StringBuilder pattern = new StringBuilder();
         int evenCount = 0;
         int oddCount = 0;
 
-        for (int i = 1; i <= n; i++) {
-            if (i % 2 == 0) {
+        for (int number : numbers) {
+            if (number % 2 == 0) {
                 evenCount++;
                 pattern.append('E');
             } else {

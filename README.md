@@ -4,11 +4,11 @@ Chương trình Java đơn giản dùng để minh họa kiểm thử statement 
 
 ## Chương trình
 
-`NumberAnalyzer.analyze(int n)` ([src/main/java/com/example/analyzer/NumberAnalyzer.java](src/main/java/com/example/analyzer/NumberAnalyzer.java)):
+`NumberAnalyzer.analyze(int[] numbers)` ([src/main/java/com/example/analyzer/NumberAnalyzer.java](src/main/java/com/example/analyzer/NumberAnalyzer.java)):
 
-- Có **1 vòng lặp** `for (i = 1..n)` để duyệt qua các số.
+- Có **1 vòng lặp** `for (number : numbers)` để duyệt qua mảng số.
 - Có **rẽ nhánh** `if/else` bên trong vòng lặp để phân loại số chẵn/lẻ.
-- Có **rẽ nhánh** `if/else if/else` sau vòng lặp để so sánh số lượng chẵn/lẻ.
+- Có **rẽ nhánh** `if/else if/else` sau vòng lặp để so sánh số lượng chẵn/lẻ (MORE_EVEN / MORE_ODD / EQUAL).
 
 ## Chạy chương trình
 
