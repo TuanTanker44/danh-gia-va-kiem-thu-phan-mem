@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Đăng nhập</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="login-container">
+    <h1>Đăng nhập</h1>
+
+    <form id="loginForm" novalidate>
+      <div class="form-group">
+        <label for="username">Tài khoản</label>
+        <input type="text" id="username" name="username" placeholder="Nhập tài khoản (6-20 ký tự)" autocomplete="username" />
+        <span class="error-message" id="usernameError"></span>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Mật khẩu</label>
+        <input type="password" id="password" name="password" placeholder="Nhập mật khẩu (6-25 ký tự)" autocomplete="current-password" />
+        <span class="error-message" id="passwordError"></span>
+      </div>
+
+      <button type="submit" id="loginBtn">Đăng nhập</button>
+
+      <p class="hint-message" id="lockHint" hidden>
+        Tài khoản đã bị khóa do đăng nhập thất bại quá 5 lần. Bạn vui lòng đăng nhập lại sau 15 phút.
+      </p>
+
+      <p class="status-message" id="statusMessage"></p>
+    </form>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
