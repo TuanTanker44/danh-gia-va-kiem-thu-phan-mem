@@ -1,0 +1,62 @@
+{
+  "peakWindows": [
+    { "start": "00:00", "end": "09:30", "label": "Trước 9:30 sáng" },
+    { "start": "16:00", "end": "19:30", "label": "16:00 - 19:30 (giờ cao điểm chiều)" }
+  ],
+  "offPeakWindows": [
+    { "start": "09:30", "end": "16:00", "label": "9:30 sáng - 16:00 chiều" },
+    { "start": "19:30", "end": "24:00", "label": "Sau 19:30 tối đến 24:00 đêm" }
+  ],
+  "ticketTypes": [
+    {
+      "id": "standard",
+      "name": "Vé thường",
+      "price": 20000,
+      "rule": "Bắt buộc phải mua Vé thường nếu Giờ đi HOẶC Giờ về rơi vào khung giờ cao điểm: trước 9:30 sáng, hoặc từ 16:00 đến 19:30. Vé thường luôn hợp lệ ở mọi khung giờ.",
+      "equivalenceClasses": [
+        { "id": "EC1", "range": "00:00 - 09:30", "description": "Giờ cao điểm sáng (trước 9:30)", "expected": "Hợp lệ" },
+        { "id": "EC2", "range": "09:30 - 16:00", "description": "Giờ thấp điểm ban ngày", "expected": "Hợp lệ (vé thường dùng được mọi lúc)" },
+        { "id": "EC3", "range": "16:00 - 19:30", "description": "Giờ cao điểm chiều", "expected": "Hợp lệ" },
+        { "id": "EC4", "range": "19:30 - 24:00", "description": "Giờ thấp điểm tối", "expected": "Hợp lệ (vé thường dùng được mọi lúc)" }
+      ],
+      "boundaryValues": [
+        { "value": "00:00", "expected": "Hợp lệ" },
+        { "value": "09:29", "expected": "Hợp lệ" },
+        { "value": "09:30", "expected": "Hợp lệ" },
+        { "value": "09:31", "expected": "Hợp lệ" },
+        { "value": "15:59", "expected": "Hợp lệ" },
+        { "value": "16:00", "expected": "Hợp lệ" },
+        { "value": "16:01", "expected": "Hợp lệ" },
+        { "value": "19:29", "expected": "Hợp lệ" },
+        { "value": "19:30", "expected": "Hợp lệ" },
+        { "value": "19:31", "expected": "Hợp lệ" },
+        { "value": "23:59", "expected": "Hợp lệ" }
+      ]
+    },
+    {
+      "id": "savings",
+      "name": "Vé tiết kiệm",
+      "price": 12000,
+      "rule": "Chỉ được mua Vé tiết kiệm khi CẢ Giờ đi và Giờ về đều nằm trong khung giờ thấp điểm: từ 9:30 sáng đến 16:00 chiều, hoặc sau 19:30 tối đến 24:00 đêm. Nếu một trong hai mốc rơi vào giờ cao điểm thì không được mua vé này.",
+      "equivalenceClasses": [
+        { "id": "EC1", "range": "00:00 - 09:30", "description": "Giờ cao điểm sáng (trước 9:30)", "expected": "Không hợp lệ" },
+        { "id": "EC2", "range": "09:30 - 16:00", "description": "Giờ thấp điểm ban ngày", "expected": "Hợp lệ" },
+        { "id": "EC3", "range": "16:00 - 19:30", "description": "Giờ cao điểm chiều", "expected": "Không hợp lệ" },
+        { "id": "EC4", "range": "19:30 - 24:00", "description": "Giờ thấp điểm tối", "expected": "Hợp lệ" }
+      ],
+      "boundaryValues": [
+        { "value": "00:00", "expected": "Không hợp lệ" },
+        { "value": "09:29", "expected": "Không hợp lệ" },
+        { "value": "09:30", "expected": "Hợp lệ" },
+        { "value": "09:31", "expected": "Hợp lệ" },
+        { "value": "15:59", "expected": "Hợp lệ" },
+        { "value": "16:00", "expected": "Không hợp lệ" },
+        { "value": "16:01", "expected": "Không hợp lệ" },
+        { "value": "19:29", "expected": "Không hợp lệ" },
+        { "value": "19:30", "expected": "Hợp lệ" },
+        { "value": "19:31", "expected": "Hợp lệ" },
+        { "value": "23:59", "expected": "Hợp lệ" }
+      ]
+    }
+  ]
+}

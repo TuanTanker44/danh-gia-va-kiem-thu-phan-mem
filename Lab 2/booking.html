@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Đặt vé xe điện</title>
+  <link rel="stylesheet" href="booking.css" />
+</head>
+<body>
+  <div class="page">
+    <header class="page-header">
+      <h1>Đặt vé xe điện</h1>
+      <div class="user-info">
+        <span id="welcomeText"></span>
+        <a href="#" id="logoutLink">Đăng xuất</a>
+      </div>
+    </header>
+
+    <section class="card">
+      <h2>1. Chọn loại vé</h2>
+      <div class="form-group">
+        <label for="ticketType">Loại vé</label>
+        <select id="ticketType"></select>
+      </div>
+      <p class="rule-text" id="ruleText"></p>
+
+      <h3>Bảng vùng tương đương (Equivalence Classes)</h3>
+      <div class="table-wrapper">
+        <table id="ecTable">
+          <thead>
+            <tr>
+              <th>Vùng</th>
+              <th>Khoảng giờ</th>
+              <th>Mô tả</th>
+              <th>Kết quả mong đợi</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <h3>Bảng giá trị biên (Boundary Values)</h3>
+      <div class="table-wrapper">
+        <table id="bvTable">
+          <thead>
+            <tr>
+              <th>Giá trị (giờ)</th>
+              <th>Kết quả mong đợi</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>2. Nhập thông tin chuyến đi</h2>
+      <form id="bookingForm" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="fromTime">Giờ đi (from)</label>
+            <input type="time" id="fromTime" name="fromTime" />
+          </div>
+          <div class="form-group">
+            <label for="toTime">Giờ về (to)</label>
+            <input type="time" id="toTime" name="toTime" />
+          </div>
+        </div>
+        <span class="error-message" id="timeError"></span>
+
+        <p class="price-line" id="priceLine">Giá vé: --</p>
+
+        <button type="submit" id="buyBtn" disabled>Mua vé</button>
+      </form>
+      <p class="status-message" id="statusMessage"></p>
+    </section>
+
+    <section class="card" id="mirrorSection" hidden>
+      <h2>3. Dữ liệu users.json sau khi mua vé (mô phỏng)</h2>
+      <p class="hint-message">
+        Trình duyệt không thể tự ghi file trên đĩa, nên nội dung bên dưới chỉ được lưu mô phỏng trong
+        <code>localStorage</code>. Hãy copy nội dung này và dán đè vào file <code>users.json</code> nếu bạn muốn
+        đồng bộ dữ liệu thật.
+      </p>
+      <textarea id="mirrorOutput" rows="14" readonly></textarea>
+      <div class="button-row">
+        <button type="button" id="copyMirrorBtn">Sao chép nội dung</button>
+        <button type="button" id="resetMirrorBtn" class="secondary">Đặt lại dữ liệu mô phỏng</button>
+      </div>
+    </section>
+  </div>
+
+  <script src="booking.js"></script>
+</body>
+</html>

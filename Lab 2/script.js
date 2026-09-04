@@ -161,7 +161,11 @@
 
     if (matchedUser) {
       clearLock();
-      showStatus("Đăng nhập thành công!", "success");
+      sessionStorage.setItem("loggedInUser", matchedUser.username);
+      showStatus("Đăng nhập thành công! Đang chuyển đến trang mua vé...", "success");
+      setTimeout(function () {
+        window.location.href = "booking.html";
+      }, 1000);
       return;
     }
 
